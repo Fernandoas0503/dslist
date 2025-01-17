@@ -39,7 +39,11 @@ public class GameListService {
 		
 		for (int i = min; i <= max; i++) {
 			gameListRepository.updateBelongingPosition(listId, list.get(i).getId(), i);
-		}
-		
+		}		
+	}
+	
+	public GameListDTO findById(Long id) {
+		GameList entity = gameListRepository.findById(id).get();
+		return new GameListDTO(entity);
 	}
 }
